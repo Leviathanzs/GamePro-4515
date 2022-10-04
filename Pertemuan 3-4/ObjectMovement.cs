@@ -12,7 +12,8 @@ public class ObjectMovement : MonoBehaviour
     Vector3 kanan;
 
     public int speed;
-    public int score;
+    public int speedRotasi;
+    int score;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +21,8 @@ public class ObjectMovement : MonoBehaviour
         mundur = new Vector3(-1, 0, 0);
         keatas = new Vector3(0, 1, 0);
         kebawah = new Vector3(0, -1, 0);
-        kiri = new Vector3(0, 0, -1);
-        kanan = new Vector3(0,0,1);
+        kiri = new Vector3(0, 0, 1);
+        kanan = new Vector3(0,0,-1);
     }
 
     // Update is called once per frame
@@ -44,11 +45,11 @@ public class ObjectMovement : MonoBehaviour
             }
             
         if (Input.GetKey("e")) {
-                transform.rotation = transform.rotation * Quaternion.Euler (kanan * speed * Time.deltaTime);
+                transform.rotation = transform.rotation * Quaternion.Euler (kanan * speedRotasi * Time.deltaTime);
             }
             
         if (Input.GetKey("q")) {
-                transform.rotation = transform.rotation * Quaternion.Euler (kiri * speed * Time.deltaTime);
+                transform.rotation = transform.rotation * Quaternion.Euler (kiri * speedRotasi * Time.deltaTime);
             }
     }
 
